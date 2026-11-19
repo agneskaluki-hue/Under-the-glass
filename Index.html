@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Under the Glass — How Touchscreens Actually Feel Your Finger</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Under the Glass</h1>
+    <p class="subtitle">Move over the screen to see the invisible electric grid sensing your touch.</p>
+  </header>
+
+  <main class="workspace">
+    <!-- Left: Interactive Sensor Canvas -->
+    <section class="screen-panel">
+      <div class="challenge-banner" id="challengeBanner">
+        <strong>Try this first:</strong> Touch the glass with a <b>Bare Finger</b>, then switch to <b>Thick Wool Glove</b>.
+      </div>
+
+      <canvas id="sensorCanvas" width="700" height="450"></canvas>
+
+      <div class="status-bar">
+        <span id="statusText">Move your cursor across the glass...</span>
+        <span id="touchCountBadge" class="badge">0 Touches Detected</span>
+      </div>
+    </section>
+
+    <!-- Right: Controls & Mechanism Controls -->
+    <aside class="controls-panel">
+      <div class="control-group">
+        <label>1. Choose What Touches the Glass</label>
+        <div class="button-grid" id="materialButtons">
+          <button data-type="finger" class="active">👆 Bare Finger</button>
+          <button data-type="glove">🧤 Wool Glove</button>
+          <button data-type="stylus">🖊️ Plastic Pen</button>
+          <button data-type="water">💧 Rain Drop</button>
+        </div>
+        <p class="hint-box" id="materialHint"></p>
+      </div>
+
+      <div class="control-group">
+        <label for="thresholdSlider">
+          2. Sensitivity Threshold: <strong id="thresholdVal">22%</strong>
+        </label>
+        <input type="range" id="thresholdSlider" min="5" max="70" value="22" />
+        <small>Lower = "Glove Mode" (more sensitive, but picks up rain & noise).</small>
+      </div>
+
+      <div class="control-group">
+        <label>3. Real-World Scenarios</label>
+        <div class="button-grid">
+          <button id="btnAddRain">🌧️ Drop Rain on Screen</button>
+          <button id="btnClearRain">🧹 Wipe Screen Dry</button>
+        </div>
+      </div>
+
+      <div class="control-group toggle-row">
+        <input type="checkbox" id="xrayToggle" checked />
+        <label for="xrayToggle">Show Hidden Tx/Rx Electrode Grid</label>
+      </div>
+    </aside>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
